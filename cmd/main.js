@@ -98,14 +98,6 @@ state.initWorkspace(workspace, () => {
     // Write output to filesystem.
     jsBuildPipeline.pipe(req.vinyl.dest(Workspace.findBuildPath()));
 
-  // If they ran the `init` command, we just set up the current directory as a
-  // Dapple package and exit.
-  //
-
-  // If they ran the `new test` command, we're going to generate the boilerplate
-  // sol files. This command is checked for before the `test` command otherwise
-  // that test would be triggered instead.
-  //
   } else if (cli.doctor) {
     let root = Workspace.findPackageRoot();
     req.doctor(root);
